@@ -52,9 +52,12 @@ $dca->fields('mein_feld')
     ->sql()
 ```
 
+Wird ein Feld im gleichem Namespace erzeugt, wird eine `DcaFieldExistsExceptions`
+zurückgegeben.
+
 ## Paletten
 ```
-$dca->palettes()
+$dca->palettes(string $palette)
     ->group('title_legend' [string $translations, boolean $hidden])
     ->fields([
         'mein_feld',
@@ -106,4 +109,6 @@ Lupcom\Globals\Css::push([
     'path/to/file2.css',
     ...
 ]);
-``
+```
+
+Wenn die hinzuzufügende CSS Datei bereits anderweitig hinzugefügt wurde, wird eine `CssExistsException` zurückgegeben
