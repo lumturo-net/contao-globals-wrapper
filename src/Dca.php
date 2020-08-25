@@ -45,29 +45,35 @@ class Dca
     }
 
     /**
+     * @param false $extend
      * @return ConfigItem
+     * @throws Exceptions\DcaConfigNotSetException
      */
-    public function config(): ConfigItem
+    public function config($extend = false): ConfigItem
     {
-        return new ConfigItem(static::$namespace);
+        return new ConfigItem(static::$namespace, $extend);
     }
 
     /**
+     * @param false $extend
      * @return ListItem
+     * @throws Exceptions\DcaListNotSetException
      */
-    public function list(): ListItem
+    public function list($extend = false): ListItem
     {
-        return new ListItem(static::$namespace);
+        return new ListItem(static::$namespace, $extend);
     }
 
     /**
      * @param $field
+     * @param false $extend
      * @return FieldItem
      * @throws Exceptions\DcaFieldExistsException
+     * @throws Exceptions\DcaFieldNotSetException
      */
-    public function fields($field): FieldItem
+    public function fields($field, $extend = false): FieldItem
     {
-        return new FieldItem(static::$namespace, $field);
+        return new FieldItem(static::$namespace, $field, $extend);
     }
 
     /**

@@ -17,6 +17,19 @@ $dca->config()
     ]);
 ```
 
+### Vorhandene Konfiguration erweitern ###
+
+`$dca->config([bool $extend])`
+
+### Exceptions ###
+
+`DcaConfigNotSetException`
+
+> Wird zurückgegeben wenn `$extend = true` und zu erweiternde Konfiguration nicht vorhanden ist.
+
+
+
+
 ## Listen
 ```
 $dca->list()
@@ -41,6 +54,16 @@ $dca->list()
         ->compile()
 ```
 
+### Vorhandene Liste erweitern ###
+
+`$dca->list([bool $extend])`
+
+### Exceptions ###
+
+`DcaListNotSetException`
+
+> Wird zurückgegeben wenn `$extend = true` und die zu erweiternde Liste nicht vorhanden ist.
+
 ## Felder
 ```
 $dca->fields('mein_feld')
@@ -54,8 +77,20 @@ $dca->fields('mein_feld')
     ->sql()
 ```
 
-Wird ein Feld im gleichem Namespace erzeugt, wird eine `DcaFieldExistsExceptions`
-zurückgegeben.
+### Vorhandenes Feld erweitern ###
+
+`$dca->field('singleSRC', [bool $extend])`
+
+### Exceptions ###
+
+`DcaFieldExistsException`
+
+> Wird zurückgegeben wenn `$extend = false` und Feld mit selben Namen im selben Namespace erstellt werden soll.
+
+`DcaFieldNotSetException`
+
+> Wird zurückgegeben wenn `$extend = true` und das zu erweiterndes Feld nicht vorhanden ist.
+
 
 ## Paletten
 ```
@@ -113,4 +148,8 @@ Lupcom\Globals\Css::push([
 ]);
 ```
 
-Wenn die hinzuzufügende CSS Datei bereits anderweitig hinzugefügt wurde, wird eine `CssExistsException` zurückgegeben
+### Exceptions ###
+
+`CssExistsException`
+
+> Wird zurückgegeben wenn die hinzuzufügende CSS bereits in TL_CSS vorhanden ist
