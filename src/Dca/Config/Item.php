@@ -2,6 +2,8 @@
 
 namespace Lupcom\Globals\Dca\Config;
 
+use Lupcom\Globals\Exceptions\DcaConfigNotSetException;
+
 /**
  * Class Item
  * @copyright LUPCOM media GmbH
@@ -22,13 +24,23 @@ class Item
     /**
      * Item constructor.
      * @param $namespace
+     * @param false $extend
+     * @throws DcaConfigNotSetException
      */
-    public function __construct($namespace)
+    public function __construct($namespace, $extend = false)
     {
-        $this->namespace = $namespace;
+        if (!$extend) {
+            $GLOBALS['TL_DCA'][$namespace]['config'] = [];
+        }
 
-        $GLOBALS['TL_DCA'][$this->namespace]['config'] = [];
-        $this->config                                  = &$GLOBALS['TL_DCA'][$this->namespace]['config'];
+        if($extend) {
+            if(!isset($GLOBALS['TL_DCA'][$namespace]['config'])) {
+                throw new DcaConfigNotSetException('The default config to be extended does not exist in the namespace "' . $namespace . '".');
+            }
+        }
+
+        $this->namespace = $namespace;
+        $this->config    = &$GLOBALS['TL_DCA'][$this->namespace]['config'];
     }
 
     /**

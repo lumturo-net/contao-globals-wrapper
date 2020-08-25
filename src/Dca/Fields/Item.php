@@ -4,6 +4,7 @@ namespace Lupcom\Globals\Dca\Fields;
 
 use InvalidArgumentException;
 use Lupcom\Globals\Exceptions\DcaFieldExistsException;
+use Lupcom\Globals\Exceptions\DcaFieldNotSetException;
 use Lupcom\Globals\Exceptions\DcaFieldSqlException;
 
 /**
@@ -33,6 +34,7 @@ class Item
      * @param string $field
      * @param bool $extend
      * @throws DcaFieldExistsException
+     * @throws DcaFieldNotSetException
      */
     public function __construct(string $namespace, string $field, bool $extend = false)
     {
@@ -42,6 +44,12 @@ class Item
             }
 
             $GLOBALS['TL_DCA'][$namespace]['fields'][$field] = [];
+        }
+
+        if($extend) {
+            if(!isset($GLOBALS['TL_DCA'][$namespace]['fields'][$field])) {
+                throw new DcaFieldNotSetException('The field "' . $field . '" to be extended does not exist in the namespace "' . $namespace . '".');
+            }
         }
 
         $this->namespace = $namespace;

@@ -2,6 +2,8 @@
 
 namespace Lupcom\Globals\Dca\Lists;
 
+use Lupcom\Globals\Exceptions\DcaListNotSetException;
+
 /**
  * Class Item
  * @copyright LUPCOM media GmbH
@@ -22,13 +24,23 @@ class Item
     /**
      * Item constructor.
      * @param $namespace
+     * @param false $extend
+     * @throws DcaListNotSetException
      */
-    public function __construct($namespace)
+    public function __construct($namespace, $extend = false)
     {
-        $this->namespace = $namespace;
+        if (!$extend) {
+            $GLOBALS['TL_DCA'][$namespace]['list'] = [];
+        }
 
-        $GLOBALS['TL_DCA'][$namespace]['list'] = [];
-        $this->list                            = &$GLOBALS['TL_DCA'][$namespace]['list'];
+        if($extend) {
+            if(!isset($GLOBALS['TL_DCA'][$namespace]['list'])) {
+                throw new DcaListNotSetException('The list to be extended does not exist in the namespace "' . $namespace . '".');
+            }
+        }
+
+        $this->namespace = $namespace;
+        $this->list      = &$GLOBALS['TL_DCA'][$namespace]['list'];
     }
 
     /**
