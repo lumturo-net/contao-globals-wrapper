@@ -1,5 +1,7 @@
 # TL_DCA
-```$dca = Lupcom\Globals\Dca::new(string $namespace);```
+```
+$dca = Lupcom\Globals\Dca::new(string $namespace);
+```
 
 ## Konfigurationen
 ```
