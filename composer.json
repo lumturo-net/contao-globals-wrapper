@@ -1,0 +1,29 @@
+{
+    "name": "lupcom/globals-wrapper",
+    "description": "Ein objektorientierter Wrapper für das GLOBALS Array in Contao",
+    "keywords": [
+        "contao",
+        "globals",
+        "dca",
+        "wrapper"
+    ],
+    "type": "contao-bundle",
+    "homepage": "https://www.lupcom.de",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Christian Wederka",
+            "email": "christian.wederka@lupcom.de",
+            "homepage": "http://www.lupcom.de",
+            "role": "Project leader"
+        }
+    ],
+    "require": {
+        "php": "^7.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Lupcom\\Globals\\": "src/"
+        }
+    }
+}
