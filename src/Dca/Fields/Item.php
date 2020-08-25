@@ -31,20 +31,22 @@ class Item
      * Item constructor.
      * @param string $namespace
      * @param string $field
+     * @param bool $extend
      * @throws DcaFieldExistsException
      */
-    public function __construct(string $namespace, string $field)
+    public function __construct(string $namespace, string $field, bool $extend = false)
     {
-        if (isset($GLOBALS['TL_DCA'][$namespace]['fields'][$field])) {
-            throw new DcaFieldExistsException('Field "' . $field . '" already exists in the namespace "' . $namespace . '".');
+        if(!$extend) {
+            if (isset($GLOBALS['TL_DCA'][$namespace]['fields'][$field])) {
+                throw new DcaFieldExistsException('Field "' . $field . '" already exists in the namespace "' . $namespace . '".');
+            }
+
+            $GLOBALS['TL_DCA'][$namespace]['fields'][$field] = [];
         }
 
         $this->namespace = $namespace;
         $this->fieldName = $field;
-
-        $GLOBALS['TL_DCA'][$namespace]['fields'][$field] = [];
-
-        $this->field = &$GLOBALS['TL_DCA'][$namespace]['fields'][$field];
+        $this->field     = &$GLOBALS['TL_DCA'][$namespace]['fields'][$field];
     }
 
     /**
