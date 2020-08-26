@@ -86,7 +86,7 @@ class Operations
      */
     public function buttonCallback(array $callback): Operations
     {
-        $this->operations['buttonCallback'] = $callback;
+        $this->operations['button_callback'] = $callback;
 
         return $this;
     }

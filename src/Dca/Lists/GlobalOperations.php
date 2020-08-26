@@ -86,7 +86,7 @@ class GlobalOperations
      */
     public function buttonCallback(array $callback): GlobalOperations
     {
-        $this->globalOperations['buttonCallback'] = $callback;
+        $this->globalOperations['button_callback'] = $callback;
 
         return $this;
     }

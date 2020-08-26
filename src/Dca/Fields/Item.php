@@ -556,7 +556,7 @@ class Item
      */
     public function saveCallback(array $callback): Item
     {
-        $this->field['saveCallback'] = $callback;
+        $this->field['save_callback'] = $callback;
 
         return $this;
     }
