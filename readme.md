@@ -27,6 +27,9 @@ $dca->config()
 
 > Wird zurückgegeben wenn `$extend = true` und zu erweiternde Konfiguration nicht vorhanden ist.
 
+
+
+
 ## Listen
 ```
 $dca->list()
@@ -100,7 +103,6 @@ $dca->palettes(string $palette)
     ->compile()
 ```
 
----
 
 # TL_CTE
 ```
@@ -115,9 +117,6 @@ Lupcom\Globals\Cte::new(string $namespace)->push([
 ]);
 ```
 
----
-
-
 # TL_LANG
 ```
 $lang = Lupcom\Globals\Lang::new($namespace);
@@ -126,8 +125,6 @@ $lang->trans('MyCustomElement1', 'Ein cooles Inhaltselement')
      ->trans('MyCustomElement3', 'Elemente gründen Gewerkschaft');
      ->trans('sharkday', ['Haitag', 'Es ist Haitag']);
 ```
-
----
 
 # TL_MODELS
 ```
@@ -147,7 +144,6 @@ Lupcom\Globals\Models::bind([
 
 > Wird zurückgegeben wenn eines der übergebenen Bindings bereits existiert
 
----
 
 # BE_MOD
 ``` 
@@ -158,8 +154,6 @@ Lupcom\Globals\Backend::new(string $namespace, string $module)->tables([
 ]);
 ```
 
----
-
 # TL_HOOKS
 ```
 use Namespace\Hooks\AddCommentHook;
@@ -169,8 +163,6 @@ $hooks = Lupcom\Globals\Hooks::get()
 $hooks->activateAccount(array $myCallback)
       ->addComment([AddCommentHook::class, 'addCommentHook']);
 ```
-
----
 
 # TL_CSS
 ``` 
