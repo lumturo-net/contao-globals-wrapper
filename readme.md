@@ -106,10 +106,14 @@ $dca->palettes(string $palette)
 
 # TL_CTE
 ```
+use Namespace\Elements\MyCustomElement1;
+use Namespace\Elements\MyCustomElement2;
+use Namespace\Elements\MyCustomElement3;
+
 Lupcom\Globals\Cte::new(string $namespace)->push([
-    'MyCustomElement1' => Namespace\MyCustomElement1::class,
-    'MyCustomElement2' => Namespace\MyCustomElement2::class,
-    'MyCustomElement3' => Namespace\MyCustomElement3::class,
+    'MyCustomElement1' => MyCustomElement1::class,
+    'MyCustomElement2' => MyCustomElement2::class,
+    'MyCustomElement3' => MyCustomElement3::class,
 ]);
 ```
 
@@ -122,6 +126,25 @@ $lang->trans('MyCustomElement1', 'Ein cooles Inhaltselement')
      ->trans('sharkday', ['Haitag', 'Es ist Haitag']);
 ```
 
+# TL_MODELS
+```
+use Namespace\Models\MyModel;
+use Namespace\Models\MySecondModel;
+
+Lupcom\Globals\Models::bind([
+    'tl_tabelle'   => MyModel:class,
+    'tl_tabelle_2' => MySecondModel::class,
+    ...
+]);
+```
+
+### Exceptions ###
+
+`BindingExistsException`
+
+> Wird zurückgegeben wenn eines der übergebenen Bindings bereits existiert
+
+
 # BE_MOD
 ``` 
 Lupcom\Globals\Backend::new(string $namespace, string $module)->tables([
@@ -133,6 +156,8 @@ Lupcom\Globals\Backend::new(string $namespace, string $module)->tables([
 
 # TL_HOOKS
 ```
+use Namespace\Hooks\AddCommentHook;
+
 $hooks = Lupcom\Globals\Hooks::get()
 
 $hooks->activateAccount(array $myCallback)
