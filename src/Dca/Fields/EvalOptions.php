@@ -762,7 +762,7 @@ class EvalOptions
      */
     public function custom(array $evalOptions): EvalOptions
     {
-        array_push($this->eval, $evalOptions);
+        $this->eval = array_merge($this->eval, $evalOptions);
 
         return $this;
     }
