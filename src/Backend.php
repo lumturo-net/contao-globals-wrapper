@@ -45,11 +45,12 @@ class Backend
 
     /**
      * @param array $tables
+     * @param $extend
      * @return $this
      */
-    public function tables(array $tables)
+    public function tables(array $tables, $extend = false)
     {
-        $this->backend['tables'] = $tables;
+        $extend ? $this->backend['tables'] = array_merge($this->backend['tables'], $tables) : $this->backend['tables'] = $tables;
 
         return $this;
     }
