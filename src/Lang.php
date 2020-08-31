@@ -42,4 +42,14 @@ class Lang
 
         return $this;
     }
+
+    /**
+     * @param string $namespace
+     * @param string $key
+     * @return mixed|string
+     */
+    public static function get(string $namespace, string $key)
+    {
+        return $GLOBALS['TL_LANG'][$namespace][$key] ?? '[MISSING TRANSLATION STRING]';
+    }
 }
