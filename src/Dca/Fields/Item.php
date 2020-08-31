@@ -582,4 +582,17 @@ class Item
 
         return $this;
     }
+
+    /**
+     * @param array $custom
+     * @return $this
+     */
+    public function custom(array $custom)
+    {
+        foreach($custom as $key => $value) {
+            $this->field[$key] = $value;
+        }
+
+        return $this;
+    }
 }
