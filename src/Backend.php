@@ -35,7 +35,9 @@ class Backend
      */
     public static function new($namespace, $module)
     {
-        $GLOBALS['BE_MOD'][$namespace][$module] = [];
+        if(!isset($GLOBALS['BE_MOD'][$namespace][$module])) {
+            $GLOBALS['BE_MOD'][$namespace][$module] = [];
+        }
 
         self::$instance          = new self;
         self::$instance->backend = &$GLOBALS['BE_MOD'][$namespace][$module];
