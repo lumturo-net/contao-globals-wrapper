@@ -2,6 +2,8 @@
 
 namespace Lupcom\Globals\Dca\Palettes;
 
+use Lupcom\Globals\Lang;
+
 /**
  * Class Palettes
  * @package Lupcom\Globals\Dca\Options
@@ -49,6 +51,10 @@ class Item
             'hidden' => $hidden,
             'fields' => []
         ];
+
+        if(!is_null($translation)) {
+            Lang::new($this->namespace)->trans($legend, $translation);
+        }
 
         return $this;
     }
