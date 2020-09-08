@@ -504,37 +504,34 @@ class Item
      */
     public function relation(array $relations): Item
     {
-        $relationsTypes = [
+        $validRelationsTypes = [
             'hasOne',
             'hasMany',
             'belongsTo',
             'belongsToMany'
         ];
 
-        $loadTypes = [
+        $validLoadTypes = [
             'lazy',
             'eager'
         ];
 
-        if (!isset($relations['type'])) {
-            throw new InvalidArgumentException('The given relations array does not contain the key "type"');
-        }
+        foreach($relations as $relation) {
+            foreach($relation as $type => $load) {
+                if(!in_array($type, $validRelationsTypes)) {
+                    throw new InvalidArgumentException('The given relation type must one of the following: ' . implode('|', $validRelationsTypes));
+                }
 
-        if (!isset($relations['load'])) {
-            throw new InvalidArgumentException('The given relations array does not contain the key "load"');
-        }
+                if(!in_array($load, $validLoadTypes)) {
+                    throw new InvalidArgumentException('The given relation load type must one of the following: ' . implode('|', $validLoadTypes));
+                }
 
-        if (!in_array($relations['type'], $relationsTypes)) {
-            throw new InvalidArgumentException('The given relation type must one of the following: ' . implode('|',
-                    $relationsTypes));
+                $this->field['relation'] = [
+                    'type' => $relation[0],
+                    'load' => $relation[1]
+                ];
+            }
         }
-
-        if (!in_array($relations['load'], $loadTypes)) {
-            throw new InvalidArgumentException('The given relation load type must one of the following: ' . implode('|',
-                    $loadTypes));
-        }
-
-        $this->field['relation'] = $relations;
 
         return $this;
     }
