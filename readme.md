@@ -92,7 +92,7 @@ $dca->fields('mein_feld')
 > Wird zurückgegeben wenn `$extend = true` und das zu erweiterndes Feld nicht vorhanden ist.
 
 
-## Paletten
+## Paletten & Subpaletten
 ```
 $dca->palettes(string $palette)
     ->group('title_legend' [string $translations, boolean $hidden])
@@ -101,24 +101,14 @@ $dca->palettes(string $palette)
         'anderes_feld',
         'nochein_feld'
     ])
-    ->group('type_legend', [string $translations, boolean $hidden])
-    ->selector(['subfeld_1', 'subfeld_2'])
-        ->palette('subfeld_1')
-        ->groups('sub1_legend')
-        ->fields([
-            'subfeld_1',
-            'subfeld_2,
-            'subfeld_3'
-        ])
-        ->palette('subfeld_2')
-        ->groups('sub2_legend')
-        ->fields([
-            'subfeld_1_1',
-            'subfeld_1_2',
-            'subfeld_1_3'
-        ])
-        ->compile()
     ->compile()
+
+$dca->subpalette('mein_feld')
+    ->fields([
+        'unterfeld_1',
+        'unterfeld_2'
+    ])
+    ->compile();
 ```
 
 

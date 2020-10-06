@@ -6,6 +6,7 @@ use Lupcom\Globals\Dca\Config\Item as ConfigItem;
 use Lupcom\Globals\Dca\Fields\Item as FieldItem;
 use Lupcom\Globals\Dca\Lists\Item as ListItem;
 use Lupcom\Globals\Dca\Palettes\Item as PalettesItem;
+use Lupcom\Globals\Dca\Palettes\Subpalette;
 
 /**
  * Class Dca
@@ -83,5 +84,14 @@ class Dca
     public function palettes($element): PalettesItem
     {
         return new PalettesItem(static::$namespace, $element);
+    }
+
+    /**
+     * @param $element
+     * @return Subpalette
+     */
+    public function subpalette($element)
+    {
+        return new Subpalette(static::$namespace, $element);
     }
 }

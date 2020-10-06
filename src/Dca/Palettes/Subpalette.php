@@ -12,11 +12,8 @@ use Lupcom\Globals\Lang;
 class Subpalette
 {
     private $namespace;
-    private $fields;
-    private $palette = [];
-    private $currentGroup;
-    private $currentField = null;
-    private $item;
+    private $element;
+    private $fields = [];
 
     /**
      * Subpalette constructor.
@@ -24,33 +21,14 @@ class Subpalette
      * @param array $fields
      * @param Item $item
      */
-    public function __construct($namespace, array $fields, Item $item)
+    public function __construct($namespace, $element)
     {
         $this->namespace = $namespace;
-        $this->fields    = $fields;
-        $this->item      = $item;
-    }
+        $this->element   = $element;
 
-    /**
-     * @param $field
-     * @return $this
-     */
-    public function palette($field): Subpalette
-    {
-        if(!in_array($field, $this->fields)) {
-            return new InvalidArgumentException('The given field "' . $field . '" is not in the previously defined array of fields for this subpalette.');
-        }
+        $this->fields[$element] = [];
 
-        if($this->currentField != $field && !is_null($this->currentField)) {
-            $this->buildPalette();
-
-            $this->palette = [];
-            $this->currentGroup = null;
-        }
-
-        $this->currentField = $this->fields[array_search($field, $this->fields)];
-
-        return $this;
+        $GLOBALS['TL_DCA'][$this->namespace]['palettes']['__selector__'][] = $element;
     }
 
     /**
@@ -59,28 +37,9 @@ class Subpalette
      * @param false $hidden
      * @return $this
      */
-    public function group($legend, $translation = null, $hidden = false): Subpalette
+    public function fields(array $fields)
     {
-        $this->currentGroup     = $legend;
-        $this->palette[$legend] = [
-            'hidden' => $hidden,
-            'fields' => []
-        ];
-
-        if(!is_null($translation)) {
-            Lang::new($this->namespace)->trans($legend, $translation);
-        }
-
-        return $this;
-    }
-
-    /**
-     * @param array $fields
-     * @return Subpalette
-     */
-    public function fields(array $fields): Subpalette
-    {
-        $this->palette[$this->currentGroup]['fields'] = $fields;
+        $this->fields[$this->element] = $fields;
 
         return $this;
     }
@@ -90,24 +49,8 @@ class Subpalette
      */
     public function compile()
     {
-        $this->buildPalette();
+        $GLOBALS['TL_DCA'][$this->namespace]['subpalettes'][$this->element] = implode(',', $this->fields[$this->element]);
 
-        return $this->item;
-    }
-
-    /**
-     *
-     */
-    private function buildPalette()
-    {
-        $compiled = [];
-
-        foreach ($this->palette as $legend => $values) {
-            $values['fields'] = implode(',', $values['fields']);
-            $legend = !empty($legend) ? '{' . $legend . ($values['hidden'] ? ':hide' : '') . '},' : '';
-            $compiled[]       = $legend . $values['fields'];
-        }
-
-        $GLOBALS['TL_DCA'][$this->namespace]['subpalettes'][$this->currentField] = implode(';', $compiled);
+        return $this;
     }
 }
