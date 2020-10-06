@@ -2,9 +2,6 @@
 
 namespace Lupcom\Globals\Dca\Palettes;
 
-use InvalidArgumentException;
-use Lupcom\Globals\Lang;
-
 /**
  * Class Subpalette
  * @package Lupcom\Globals\Dca\Palettes
@@ -18,8 +15,7 @@ class Subpalette
     /**
      * Subpalette constructor.
      * @param $namespace
-     * @param array $fields
-     * @param Item $item
+     * @param $element
      */
     public function __construct($namespace, $element)
     {
@@ -32,9 +28,7 @@ class Subpalette
     }
 
     /**
-     * @param $legend
-     * @param null $translation
-     * @param false $hidden
+     * @param array $fields
      * @return $this
      */
     public function fields(array $fields)
@@ -45,7 +39,7 @@ class Subpalette
     }
 
     /**
-     * @return Item
+     * @return $this
      */
     public function compile()
     {

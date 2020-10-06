@@ -71,17 +71,6 @@ class Item
     }
 
     /**
-     * @param array $fields
-     * @return Subpalette
-     */
-    public function selector(array $fields)
-    {
-        $GLOBALS['TL_DCA'][$this->namespace]['palettes']['__selector__'] = $fields;
-
-        return new Subpalette($this->namespace, $fields, $this);
-    }
-
-    /**
      *
      */
     public function compile()
