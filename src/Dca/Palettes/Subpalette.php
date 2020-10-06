@@ -104,7 +104,8 @@ class Subpalette
 
         foreach ($this->palette as $legend => $values) {
             $values['fields'] = implode(',', $values['fields']);
-            $compiled[]       = '{' . $legend . ($values['hidden'] ? ':hide' : '') . '},' . $values['fields'];
+            $legend = !empty($legend) ? '{' . $legend . ($values['hidden'] ? ':hide' : '') . '},' : '';
+            $compiled[]       = $legend . $values['fields'];
         }
 
         $GLOBALS['TL_DCA'][$this->namespace]['subpalettes'][$this->currentField] = implode(';', $compiled);
