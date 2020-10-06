@@ -49,7 +49,7 @@ class EvalOptions
      * @param bool $value
      * @return $this
      */
-    public function helpwizard(bool $value): EvalOptions
+    public function helpwizard(bool $value = true): EvalOptions
     {
         $this->eval['helpwizard'] = $value;
 
@@ -60,7 +60,7 @@ class EvalOptions
      * @param bool $value
      * @return $this
      */
-    public function mandatory(bool $value): EvalOptions
+    public function mandatory(bool $value = true): EvalOptions
     {
         $this->eval['mandatory'] = $value;
 
@@ -115,7 +115,7 @@ class EvalOptions
      * @param bool $value
      * @return $this
      */
-    public function fallback(bool $value): EvalOptions
+    public function fallback(bool $value = true): EvalOptions
     {
         $this->eval['fallback'] = $value;
 
@@ -198,7 +198,7 @@ class EvalOptions
      * @return $this
      * @throws InvalidCallException
      */
-    public function multiple(bool $value): EvalOptions
+    public function multiple(bool $value = true): EvalOptions
     {
         if (!in_array($GLOBALS['TL_DCA'][$this->namespace]['fields'][$this->field]['inputType'], [
             'text',
@@ -258,7 +258,7 @@ class EvalOptions
      * @param bool $value
      * @return $this
      */
-    public function submitOnChange(bool $value): EvalOptions
+    public function submitOnChange(bool $value = true): EvalOptions
     {
         $this->eval['submitOnChange'] = $value;
 
@@ -269,7 +269,7 @@ class EvalOptions
      * @param bool $value
      * @return $this
      */
-    public function nospace(bool $value): EvalOptions
+    public function nospace(bool $value = true): EvalOptions
     {
         $this->eval['nospace'] = $value;
 
@@ -280,7 +280,7 @@ class EvalOptions
      * @param bool $value
      * @return $this
      */
-    public function allowHtml(bool $value): EvalOptions
+    public function allowHtml(bool $value = true): EvalOptions
     {
         $this->eval['allowHtml'] = $value;
 
@@ -291,7 +291,7 @@ class EvalOptions
      * @param bool $value
      * @return $this
      */
-    public function preserveTags(bool $value): EvalOptions
+    public function preserveTags(bool $value = true): EvalOptions
     {
         $this->eval['allowHtml'] = $value;
 
@@ -302,7 +302,7 @@ class EvalOptions
      * @param bool $value
      * @return $this
      */
-    public function decodeEntities(bool $value): EvalOptions
+    public function decodeEntities(bool $value = true): EvalOptions
     {
         $this->eval['decodeEntities'] = $value;
 
@@ -313,7 +313,7 @@ class EvalOptions
      * @param bool $value
      * @return $this
      */
-    public function useRawRequestData(bool $value): EvalOptions
+    public function useRawRequestData(bool $value = true): EvalOptions
     {
         $this->eval['useRawRequestData'] = $value;
 
@@ -324,7 +324,7 @@ class EvalOptions
      * @param bool $value
      * @return $this
      */
-    public function doNotSaveEmpty(bool $value): EvalOptions
+    public function doNotSaveEmpty(bool $value = true): EvalOptions
     {
         $this->eval['doNotSaveEmpty'] = $value;
 
@@ -335,7 +335,7 @@ class EvalOptions
      * @param bool $value
      * @return $this
      */
-    public function alwaysSave(bool $value): EvalOptions
+    public function alwaysSave(bool $value = true): EvalOptions
     {
         $this->eval['alwaysSave'] = $value;
 
@@ -346,7 +346,7 @@ class EvalOptions
      * @param bool $value
      * @return $this
      */
-    public function spaceToUnderscore(bool $value): EvalOptions
+    public function spaceToUnderscore(bool $value = true): EvalOptions
     {
         $this->eval['spaceToUnderscore'] = $value;
 
@@ -357,7 +357,7 @@ class EvalOptions
      * @param bool $value
      * @return $this
      */
-    public function unique(bool $value): EvalOptions
+    public function unique(bool $value = true): EvalOptions
     {
         $this->eval['unique'] = $value;
 
@@ -368,7 +368,7 @@ class EvalOptions
      * @param bool $value
      * @return $this
      */
-    public function encrypt(bool $value): EvalOptions
+    public function encrypt(bool $value = true): EvalOptions
     {
         $this->eval['encrypt'] = $value;
 
@@ -379,7 +379,7 @@ class EvalOptions
      * @param bool $value
      * @return $this
      */
-    public function trailingSlash(bool $value): EvalOptions
+    public function trailingSlash(bool $value = true): EvalOptions
     {
         $this->eval['trailingSlash'] = $value;
 
@@ -391,7 +391,7 @@ class EvalOptions
      * @return $this
      * @throws InvalidCallException
      */
-    public function files(bool $value): EvalOptions
+    public function files(bool $value = true): EvalOptions
     {
         if ($GLOBALS['TL_DCA'][$this->namespace]['fields'][$this->field]['inputType'] != 'fileTree') {
             throw new InvalidCallException('The "files" method can only be used on fileTree fields.');
@@ -407,7 +407,7 @@ class EvalOptions
      * @return $this
      * @throws InvalidCallException
      */
-    public function filesOnly(bool $value): EvalOptions
+    public function filesOnly(bool $value = true): EvalOptions
     {
         if ($GLOBALS['TL_DCA'][$this->namespace]['fields'][$this->field]['inputType'] != 'fileTree') {
             throw new InvalidCallException('The "filesOnly" method can only be used on fileTree fields.');
@@ -474,7 +474,7 @@ class EvalOptions
      * @return $this
      * @throws InvalidCallException
      */
-    public function isSortable(bool $value): EvalOptions
+    public function isSortable(bool $value = true): EvalOptions
     {
         if (floatval(VERSION) < 4.10) {
             throw new BadVersionException('The "isSortable" method can only be applied in Contao 4.10. Your Version: ' . VERSION);
@@ -510,7 +510,7 @@ class EvalOptions
      * @return $this
      * @throws InvalidCallException
      */
-    public function includeBlankOption(bool $value): EvalOptions
+    public function includeBlankOption(bool $value = true): EvalOptions
     {
         if ($GLOBALS['TL_DCA'][$this->namespace]['fields'][$this->field]['inputType'] != 'select') {
             throw new InvalidCallException('The "includeBlankOption" method can only be used on select fields.');
@@ -542,7 +542,7 @@ class EvalOptions
      * @return $this
      * @throws InvalidCallException
      */
-    public function chosen(bool $value): EvalOptions
+    public function chosen(bool $value = true): EvalOptions
     {
         if ($GLOBALS['TL_DCA'][$this->namespace]['fields'][$this->field]['inputType'] != 'select') {
             throw new InvalidCallException('The "includeBlankOption" method can only be used on select fields.');
@@ -558,7 +558,7 @@ class EvalOptions
      * @return $this
      * @throws InvalidCallException
      */
-    public function findInSet(bool $value): EvalOptions
+    public function findInSet(bool $value = true): EvalOptions
     {
         if ($GLOBALS['TL_DCA'][$this->namespace]['fields'][$this->field]['inputType'] != 'select') {
             throw new InvalidCallException('The "includeBlankOption" method can only be used on select fields.');
@@ -573,7 +573,7 @@ class EvalOptions
      * @param bool $value
      * @return $this
      */
-    public function datepicker(bool $value): EvalOptions
+    public function datepicker(bool $value = true): EvalOptions
     {
         $this->eval['datepicker'] = $value;
 
@@ -584,7 +584,7 @@ class EvalOptions
      * @param bool $value
      * @return $this
      */
-    public function colorpicker(bool $value): EvalOptions
+    public function colorpicker(bool $value = true): EvalOptions
     {
         $this->eval['colorpicker'] = $value;
 
@@ -595,7 +595,7 @@ class EvalOptions
      * @param bool $value
      * @return $this
      */
-    public function feEditable(bool $value): EvalOptions
+    public function feEditable(bool $value = true): EvalOptions
     {
         $this->eval['feEditable'] = $value;
 
@@ -606,7 +606,7 @@ class EvalOptions
      * @param bool $value
      * @return $this
      */
-    public function feGroup(bool $value): EvalOptions
+    public function feGroup(bool $value = true): EvalOptions
     {
         $this->eval['feEditable'] = $value;
 
@@ -617,7 +617,7 @@ class EvalOptions
      * @param bool $value
      * @return $this
      */
-    public function feViewable(bool $value): EvalOptions
+    public function feViewable(bool $value = true): EvalOptions
     {
         $this->eval['feViewable'] = $value;
 
@@ -628,7 +628,7 @@ class EvalOptions
      * @param bool $value
      * @return $this
      */
-    public function doNotCopy(bool $value): EvalOptions
+    public function doNotCopy(bool $value = true): EvalOptions
     {
         $this->eval['doNotCopy'] = $value;
 
@@ -639,7 +639,7 @@ class EvalOptions
      * @param bool $value
      * @return $this
      */
-    public function hideInput(bool $value): EvalOptions
+    public function hideInput(bool $value = true): EvalOptions
     {
         $this->eval['hideInput'] = $value;
 
@@ -650,7 +650,7 @@ class EvalOptions
      * @param bool $value
      * @return $this
      */
-    public function doNotShow(bool $value): EvalOptions
+    public function doNotShow(bool $value = true): EvalOptions
     {
         $this->eval['doNotShow'] = $value;
 
@@ -661,7 +661,7 @@ class EvalOptions
      * @param bool $value
      * @return $this
      */
-    public function isBoolean(bool $value): EvalOptions
+    public function isBoolean(bool $value = true): EvalOptions
     {
         $this->eval['isBoolean'] = $value;
 
@@ -672,7 +672,7 @@ class EvalOptions
      * @param bool $value
      * @return $this
      */
-    public function isAssociative(bool $value): EvalOptions
+    public function isAssociative(bool $value = true): EvalOptions
     {
         $this->eval['isAssociative'] = $value;
 
@@ -683,7 +683,7 @@ class EvalOptions
      * @param bool $value
      * @return $this
      */
-    public function disabled(bool $value): EvalOptions
+    public function disabled(bool $value = true): EvalOptions
     {
         $this->eval['disabled'] = $value;
 
@@ -694,7 +694,7 @@ class EvalOptions
      * @param bool $value
      * @return $this
      */
-    public function readonly(bool $value): EvalOptions
+    public function readonly(bool $value = true): EvalOptions
     {
         $this->eval['readonly'] = $value;
 
@@ -727,7 +727,7 @@ class EvalOptions
      * @param bool $value
      * @return $this
      */
-    public function dcaPicker(bool $value): EvalOptions
+    public function dcaPicker(bool $value = true): EvalOptions
     {
         $this->eval['dcaPicker'] = $value;
 
@@ -749,7 +749,7 @@ class EvalOptions
      * @param bool $value
      * @return $this
      */
-    public function isHexColor(bool $value): EvalOptions
+    public function isHexColor(bool $value = true): EvalOptions
     {
         $this->eval['isHexColor'] = $value;
 

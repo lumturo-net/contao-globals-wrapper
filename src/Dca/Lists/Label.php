@@ -43,7 +43,7 @@ class Label
      * @param bool $value
      * @return $this
      */
-    public function showColumns(bool $value): Label
+    public function showColumns(bool $value = true): Label
     {
         $this->label['showColumns'] = $value;
 

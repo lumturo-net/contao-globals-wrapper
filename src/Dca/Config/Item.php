@@ -69,7 +69,7 @@ class Item
      * @param bool $value
      * @return $this
      */
-    public function dynamicPtable(bool $value): Item
+    public function dynamicPtable(bool $value = true): Item
     {
         $this->config['dynamicPtable'] = $value;
 
@@ -113,7 +113,7 @@ class Item
      * @param bool $value
      * @return $this
      */
-    public function closed(bool $value): Item
+    public function closed(bool $value = true): Item
     {
         $this->config['closed'] = $value;
 
@@ -124,7 +124,7 @@ class Item
      * @param bool $value
      * @return $this
      */
-    public function notEditable(bool $value): Item
+    public function notEditable(bool $value = true): Item
     {
         $this->config['notEditable'] = $value;
 
@@ -135,7 +135,7 @@ class Item
      * @param bool $value
      * @return $this
      */
-    public function notDeletable(bool $value): Item
+    public function notDeletable(bool $value = true): Item
     {
         $this->config['notDeletable'] = $value;
 
@@ -146,7 +146,7 @@ class Item
      * @param bool $value
      * @return $this
      */
-    public function notSortable(bool $value): Item
+    public function notSortable(bool $value = true): Item
     {
         $this->config['notSortable'] = $value;
 
@@ -157,7 +157,7 @@ class Item
      * @param bool $value
      * @return $this
      */
-    public function notCopyable(bool $value): Item
+    public function notCopyable(bool $value = true): Item
     {
         $this->config['notCopyable'] = $value;
 
@@ -168,7 +168,7 @@ class Item
      * @param bool $value
      * @return $this
      */
-    public function notCreatable(bool $value): Item
+    public function notCreatable(bool $value = true): Item
     {
         $this->config['notCreatable'] = $value;
 
@@ -179,7 +179,7 @@ class Item
      * @param bool $value
      * @return $this
      */
-    public function switchToEdit(bool $value): Item
+    public function switchToEdit(bool $value = true): Item
     {
         $this->config['switchToEdit'] = $value;
 
@@ -190,7 +190,7 @@ class Item
      * @param bool $value
      * @return $this
      */
-    public function enableVersioning(bool $value): Item
+    public function enableVersioning(bool $value = true): Item
     {
         $this->config['enableVersioning'] = $value;
 
@@ -201,7 +201,7 @@ class Item
      * @param bool $value
      * @return $this
      */
-    public function doNotCopyRecords(bool $value): Item
+    public function doNotCopyRecords(bool $value = true): Item
     {
         $this->config['doNotCopyRecords'] = $value;
 
@@ -212,7 +212,7 @@ class Item
      * @param bool $value
      * @return $this
      */
-    public function doNotDeleteRecords(bool $value): Item
+    public function doNotDeleteRecords(bool $value = true): Item
     {
         $this->config['doNotDeleteRecords'] = $value;
 

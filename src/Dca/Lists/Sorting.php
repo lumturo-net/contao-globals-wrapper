@@ -165,7 +165,7 @@ class Sorting
      * @param bool $value
      * @return $this
      */
-    public function rootPaste(bool $value): Sorting
+    public function rootPaste(bool $value = true): Sorting
     {
         $this->sorting['rootPase'] = $value;
 
@@ -187,7 +187,7 @@ class Sorting
      * @param bool $value
      * @return $this
      */
-    public function disableGrouping(bool $value): Sorting
+    public function disableGrouping(bool $value = true): Sorting
     {
         $this->sorting['disableGrouping'] = $value;
 
