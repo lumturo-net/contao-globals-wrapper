@@ -409,10 +409,10 @@ class Item
     }
 
     /**
-     * @param array $optionsCallback
+     * @param $optionsCallback
      * @return $this
      */
-    public function optionsCallback(array $optionsCallback): Item
+    public function optionsCallback($optionsCallback): Item
     {
         $this->field['options_callback'] = $optionsCallback;
 
