@@ -1,6 +1,8 @@
 # TL_DCA
 ```
-$dca = Lupcom\Globals\Dca::new(string $namespace);
+use Lupcom\Globals\Dca;
+
+$dca = Dca::new(string $namespace);
 ```
 
 ## Konfigurationen
@@ -26,9 +28,6 @@ $dca->config()
 `DcaConfigNotSetException`
 
 > Wird zurückgegeben wenn `$extend = true` und zu erweiternde Konfiguration nicht vorhanden ist.
-
-
-
 
 ## Listen
 ```
@@ -113,12 +112,18 @@ $dca->subpalette('mein_feld')
 
 
 # TL_CTE
+
+Mit `Cte::new($namespace)->push(Array [])` können Mappings 
+von Inhaltselementen zu ihren respektiven Klassen definiert
+werden.
+
 ```
+use Lupcom\Globals\Cte;
 use Namespace\Elements\MyCustomElement1;
 use Namespace\Elements\MyCustomElement2;
 use Namespace\Elements\MyCustomElement3;
 
-Lupcom\Globals\Cte::new(string $namespace)->push([
+Cte::new(string $namespace)->push([
     'MyCustomElement1' => MyCustomElement1::class,
     'MyCustomElement2' => MyCustomElement2::class,
     'MyCustomElement3' => MyCustomElement3::class,
@@ -126,25 +131,74 @@ Lupcom\Globals\Cte::new(string $namespace)->push([
 ```
 
 # TL_LANG
+Mit dem Language Wrapper können sowohl neue Übersetzungen
+erstellt, als auch aus existierenden Übersetzungen entsprechende
+Werte ausgelesen werden.
+
+## Übersetzung erstellen
 ```
-$lang = Lupcom\Globals\Lang::new($namespace);
+use Lupcom\Globals\Lang;
+
+$lang = Lang::set($namespace);
 $lang->trans('MyCustomElement1', 'Ein cooles Inhaltselement')
      ->trans('MyCustomElement2', 'Und noch eins')
      ->trans('MyCustomElement3', 'Elemente gründen Gewerkschaft');
      ->trans('sharkday', ['Haitag', 'Es ist Haitag']);
 ```
+## Übersetzungen holen
+```
+use Lupcom\Globals\Lang;
+
+Lang::set($namespace);
+
+$dca->field('text')
+    ->label(__('sharkday'));
+```
+## Übersetungen aus anderem Namespace holen
+```
+use Lupcom\Globals\Lang;
+
+$dca->field('text')
+    ->label(Lang::__('deleteConfirm', 'MSC'));
+```
+
 
 # TL_MODELS
+**!! Ab Contao 4.9.x !!**
+
+Durch das Modelbinding ist es möglich, dass die Klassen
+der Models anders benannt sein können als die Tabellen
+in der Datenbank.
+
 ```
+use Lupcom\Globals\Models;
+
 use Namespace\Models\MyModel;
 use Namespace\Models\MySecondModel;
 
-Lupcom\Globals\Models::bind([
+Models::bind([
     'tl_tabelle'   => MyModel:class,
     'tl_tabelle_2' => MySecondModel::class,
     ...
 ]);
 ```
+
+##Allgemeine Info zu Models
+
+Ein Model repräsentiert EINE (!) Zeile aus einer Datenbanktabelle.
+
+Daher sollte ein Model auch immer nach der Einzahl benannt sein. Beispiel:
+
+`Lupcom\InserateBundle\Models\Inserat::class`
+`Lupcom\SpeisenBundle\Models\Speise::class`
+
+Sämtliche Datenbank-Interaktionen (Business Logik) sollten im Model abgebildet sein.
+
+Gibt ein Model eine Instanz von `Model\Collection` zurück, so
+sollte die entsprechende Variable nach der Mehrzahl benannt sein 
+und über den Suffix `Collection verfügen. Beispiel:
+
+`$inserateCollection = Inserat::findBy('published', 1);`
 
 ### Exceptions ###
 
@@ -155,7 +209,9 @@ Lupcom\Globals\Models::bind([
 
 # BE_MOD
 ``` 
-Lupcom\Globals\Backend::new(string $namespace, string $module)->tables([
+use Lupcom\Globals\Backend;
+
+Backend::new(string $namespace, string $module)->tables([
     'tl_tabelle_1',
     'tl_tabelle_2',
     ...
@@ -164,17 +220,19 @@ Lupcom\Globals\Backend::new(string $namespace, string $module)->tables([
 
 # TL_HOOKS
 ```
+use Lupcom\Globals\Hooks;
 use Namespace\Hooks\AddCommentHook;
 
-$hooks = Lupcom\Globals\Hooks::get()
-
+$hooks = Hooks::get()
 $hooks->activateAccount(array $myCallback)
       ->addComment([AddCommentHook::class, 'addCommentHook']);
 ```
 
 # TL_CSS
 ``` 
-Lupcom\Globals\Css::push([
+use Lupcom\Globals\Css;
+
+Css::push([
     'path/to/file1.css',
     'path/to/file2.css',
     ...
