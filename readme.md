@@ -187,9 +187,10 @@ Models::bind([
 
 Ein Model repräsentiert EINE (!) Zeile aus einer Datenbanktabelle.
 
-Daher sollte ein Model auch immer nach der Einzahl benannt sein. Beispiel:
+Daher sollte ein Model auch immer nach der Einzahl benannt sein. Beispiele:
 
 `Lupcom\InserateBundle\Models\Inserat::class`
+
 `Lupcom\SpeisenBundle\Models\Speise::class`
 
 Sämtliche Datenbank-Interaktionen (Business Logik) sollten im Model abgebildet sein.
