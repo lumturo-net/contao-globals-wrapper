@@ -34,7 +34,9 @@ class Cte
      */
     public static function new(string $namespace)
     {
-        $GLOBALS['TL_CTE'][$namespace] = [];
+        if(!isset($GLOBALS['TL_CTE'][$namespace])) {
+            $GLOBALS['TL_CTE'][$namespace] = [];
+        }
 
         self::$instance      = new self;
         self::$instance->cte = &$GLOBALS['TL_CTE'][$namespace];
