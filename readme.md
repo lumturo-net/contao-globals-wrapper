@@ -197,7 +197,7 @@ Sämtliche Datenbank-Interaktionen (Business Logik) sollten im Model abgebildet 
 
 Gibt ein Model eine Instanz von `Model\Collection` zurück, so
 sollte die entsprechende Variable nach der Mehrzahl benannt sein 
-und über den Suffix `Collection verfügen. Beispiel:
+und über den Suffix `Collection` verfügen. Beispiel:
 
 `$inserateCollection = Inserat::findBy('published', 1);`
 
