@@ -22,6 +22,7 @@
         "php": "^7.1"
     },
     "autoload": {
+        "files": ["helpers.php"],
         "psr-4": {
             "Lupcom\\Globals\\": "src/"
         }
