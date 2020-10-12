@@ -212,7 +212,7 @@ und über den Suffix `Collection` verfügen. Beispiel:
 ``` 
 use Lupcom\Globals\Backend;
 
-Backend::new(string $namespace, string $module)->tables([
+Backend::new(string $namespace, string $module, [int $position = 1])->tables([
     'tl_tabelle_1',
     'tl_tabelle_2',
     ...

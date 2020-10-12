@@ -31,12 +31,13 @@ class Backend
     /**
      * @param $namespace
      * @param $module
+     * @param int $position
      * @return Backend
      */
-    public static function new($namespace, $module)
+    public static function new($namespace, $module, $position = 1)
     {
         if(!isset($GLOBALS['BE_MOD'][$namespace][$module])) {
-            $GLOBALS['BE_MOD'][$namespace][$module] = [];
+            array_insert($GLOBALS['BE_MOD'], $position, [$namespace => [$module => []]]);
         }
 
         self::$instance          = new self;
