@@ -2,7 +2,12 @@
 
 use Lupcom\Globals\Lang;
 
-function __($key)
+/**
+ * @param string $key
+ * @param string|null $namespace
+ * @return mixed|string
+ */
+function __(string $key, string $namespace = null)
 {
-    return Lang::__($key);
+    return Lang::__($key, $namespace);
 }
