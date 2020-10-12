@@ -183,7 +183,7 @@ Models::bind([
 ]);
 ```
 
-##Allgemeine Info zu Models
+## Allgemeine Info zu Models
 
 Ein Model repräsentiert EINE (!) Zeile aus einer Datenbanktabelle.
 
