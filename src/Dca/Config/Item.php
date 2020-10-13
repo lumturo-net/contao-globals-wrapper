@@ -88,6 +88,14 @@ class Item
     }
 
     /**
+     * ```
+     * Accepted values:
+     *
+     * Table
+     * File
+     * Folder
+     * ```
+     *
      * @param string $value
      * @return $this
      */
