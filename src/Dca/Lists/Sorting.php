@@ -31,6 +31,16 @@ class Sorting
     }
 
     /**
+     * ```
+     * 0 => Not sorted
+     * 1 => Sort by fixed field
+     * 2 => Sort by switchable field
+     * 3 => Sort by parent table
+     * 4 => Displays child records of parent table
+     * 5 => Displays records as tree
+     * 6 => Displays child record within tree
+     * ```
+     *
      * @param int $mode
      * @return $this
      */
@@ -64,6 +74,21 @@ class Sorting
     }
 
     /**
+     * ```
+     * 1 => ASC: Sort by initial letter
+     * 2 => DESC: Sort by initial letter
+     * 3 => ASC: Sort by inital two letters
+     * 4 => DESC: Sort by inital two letters
+     * 5 => ASC: Sort by day
+     * 6 => DESC: Sort by day
+     * 7 => ASC: Sort by month
+     * 8 => DESC: Sort by month
+     * 9 => ASC: Sort by year
+     * 10 => DESC: Sort by year
+     * 11 => ASC
+     * 12 => DESC
+     * ```
+     *
      * @param int $flag
      * @return $this
      */

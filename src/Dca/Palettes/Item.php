@@ -39,6 +39,10 @@ class Item
     }
 
     /**
+     * ```
+     * ...->group('my_legend', __('my_legend_translation'), [$hidden = true|false])
+     * ```
+     *
      * @param $legend
      * @param null $translation
      * @param false $hidden
