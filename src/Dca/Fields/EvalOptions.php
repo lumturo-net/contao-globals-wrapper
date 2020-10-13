@@ -204,7 +204,8 @@ class EvalOptions
             'text',
             'select',
             'radio',
-            'checkbox'
+            'checkbox',
+            'checkboxWizard'
         ])) {
             throw new InvalidCallException('The "multiple" method can only be used on text|select|radio|checkbox fields');
         }
