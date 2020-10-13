@@ -499,6 +499,15 @@ class Item
     }
 
     /**
+     * ```
+     * ...->relation([
+     *     'hasOne' => 'lazy|eager',
+     *     'hasMany' => 'lazy|eager',
+     *     'belongsTo' => 'lazy|eager',
+     *     'belongsToMany' => 'lazy|eager'
+     * ])
+     * ```
+     *
      * @param array $relations
      * @return $this
      */
