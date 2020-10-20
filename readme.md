@@ -10,7 +10,7 @@ $dca = Dca::new(string $namespace);
 $dca->config()
     ->dataContainer('Table')
     ->cTable(['tl_tabelle'])
-    ->enableVersioning(true)
+    ->enableVersioning()
     ->custom([
         // Eigene Konfigurationsfelder
     ])
@@ -68,9 +68,9 @@ $dca->list()
 $dca->fields('mein_feld')
     ->text()
     ->label(string|array $label)
-    ->exclude(true)
+    ->exclude()
     ->eval()
-        ->mandatory(true)
+        ->mandatory()
         ->maxlength(255)
         ->compile()
     ->sql()
@@ -159,7 +159,7 @@ $dca->field('text')
 use Lupcom\Globals\Lang;
 
 $dca->field('text')
-    ->label(Lang::__('deleteConfirm', 'MSC'));
+    ->label(__('deleteConfirm', 'MSC'));
 ```
 
 
@@ -183,6 +183,11 @@ Models::bind([
 ]);
 ```
 
+### Exceptions ###
+
+`BindingExistsException`
+> Wird zurückgegeben wenn eines der übergebenen Bindings bereits existiert
+
 ## Allgemeine Info zu Models
 
 Ein Model repräsentiert EINE (!) Zeile aus einer Datenbanktabelle.
@@ -200,13 +205,6 @@ sollte die entsprechende Variable nach der Mehrzahl benannt sein
 und über den Suffix `Collection` verfügen. Beispiel:
 
 `$inserateCollection = Inserat::findBy('published', 1);`
-
-### Exceptions ###
-
-`BindingExistsException`
-
-> Wird zurückgegeben wenn eines der übergebenen Bindings bereits existiert
-
 
 # BE_MOD
 ``` 
