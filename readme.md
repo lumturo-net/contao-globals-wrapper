@@ -1,12 +1,12 @@
 # TL_DCA
-```
+```php
 use Lupcom\Globals\Dca;
 
 $dca = Dca::new(string $namespace);
 ```
 
 ## Konfigurationen
-```
+```php
 $dca->config()
     ->dataContainer('Table')
     ->cTable(['tl_tabelle'])
@@ -30,7 +30,7 @@ $dca->config()
 > Wird zurückgegeben wenn `$extend = true` und zu erweiternde Konfiguration nicht vorhanden ist.
 
 ## Listen
-```
+```php
 $dca->list()
     ->sorting()
         ->fields(['title'])
@@ -64,7 +64,7 @@ $dca->list()
 > Wird zurückgegeben wenn `$extend = true` und die zu erweiternde Liste nicht vorhanden ist.
 
 ## Felder
-```
+```php
 $dca->fields('mein_feld')
     ->text()
     ->label(string|array $label)
@@ -92,7 +92,7 @@ $dca->fields('mein_feld')
 
 
 ## Paletten & Subpaletten
-```
+```php
 $dca->palettes(string $palette)
     ->group('title_legend' [string $translations, boolean $hidden])
     ->fields([
@@ -117,7 +117,7 @@ Mit `Cte::new($namespace)->push(Array [])` können Mappings
 von Inhaltselementen zu ihren respektiven Klassen definiert
 werden.
 
-```
+```php
 use Lupcom\Globals\Cte;
 use Namespace\Elements\MyCustomElement1;
 use Namespace\Elements\MyCustomElement2;
@@ -136,7 +136,7 @@ erstellt, als auch aus existierenden Übersetzungen entsprechende
 Werte ausgelesen werden.
 
 ## Übersetzung erstellen
-```
+```php
 use Lupcom\Globals\Lang;
 
 $lang = Lang::set($namespace);
@@ -146,7 +146,7 @@ $lang->trans('MyCustomElement1', 'Ein cooles Inhaltselement')
      ->trans('sharkday', ['Haitag', 'Es ist Haitag']);
 ```
 ## Übersetzungen holen
-```
+```php
 use Lupcom\Globals\Lang;
 
 Lang::set($namespace);
@@ -155,7 +155,7 @@ $dca->field('text')
     ->label(__('sharkday'));
 ```
 ## Übersetungen aus anderem Namespace holen
-```
+```php
 use Lupcom\Globals\Lang;
 
 $dca->field('text')
@@ -170,7 +170,7 @@ Durch das Modelbinding ist es möglich, dass die Klassen
 der Models anders benannt sein können als die Tabellen
 in der Datenbank.
 
-```
+```php
 use Lupcom\Globals\Models;
 
 use Namespace\Models\MyModel;
@@ -207,7 +207,7 @@ und über den Suffix `Collection` verfügen. Beispiel:
 `$inserateCollection = Inserat::findBy('published', 1);`
 
 # BE_MOD
-``` 
+```php
 use Lupcom\Globals\Backend;
 
 Backend::new(string $namespace, string $module, [int $position = 1])->tables([
@@ -218,7 +218,7 @@ Backend::new(string $namespace, string $module, [int $position = 1])->tables([
 ```
 
 # TL_HOOKS
-```
+```php
 use Lupcom\Globals\Hooks;
 use Namespace\Hooks\AddCommentHook;
 
@@ -228,7 +228,7 @@ $hooks->activateAccount(array $myCallback)
 ```
 
 # TL_CSS
-``` 
+```php 
 use Lupcom\Globals\Css;
 
 Css::push([
