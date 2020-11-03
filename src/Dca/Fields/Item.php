@@ -508,10 +508,10 @@ class Item
      * ])
      * ```
      *
-     * @param array $relations
+     * @param array $relation
      * @return $this
      */
-    public function relation(array $relations): Item
+    public function relation(array $relation): Item
     {
         $validRelationsTypes = [
             'hasOne',
@@ -525,21 +525,19 @@ class Item
             'eager'
         ];
 
-        foreach($relations as $relation) {
-            foreach($relation as $type => $load) {
-                if(!in_array($type, $validRelationsTypes)) {
-                    throw new InvalidArgumentException('The given relation type must one of the following: ' . implode('|', $validRelationsTypes));
-                }
-
-                if(!in_array($load, $validLoadTypes)) {
-                    throw new InvalidArgumentException('The given relation load type must one of the following: ' . implode('|', $validLoadTypes));
-                }
-
-                $this->field['relation'] = [
-                    'type' => $relation[0],
-                    'load' => $relation[1]
-                ];
+        foreach($relation as $type => $load) {
+            if(!in_array($type, $validRelationsTypes)) {
+                throw new InvalidArgumentException('The given relation type must one of the following: ' . implode('|', $validRelationsTypes));
             }
+
+            if(!in_array($load, $validLoadTypes)) {
+                throw new InvalidArgumentException('The given relation load type must one of the following: ' . implode('|', $validLoadTypes));
+            }
+
+            $this->field['relation'] = [
+                'type' => $relation[0],
+                'load' => $relation[1]
+            ];
         }
 
         return $this;

@@ -73,6 +73,9 @@ $dca->fields('mein_feld')
         ->mandatory()
         ->maxlength(255)
         ->compile()
+    ->relation([
+        'hasOne' => 'lazy'    
+    ])
     ->sql()
 ```
 
