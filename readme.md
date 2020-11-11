@@ -15,7 +15,7 @@ $dca->config()
         // Eigene Konfigurationsfelder
     ])
     ->sql([
-        keys' => ['id' => 'primary']
+        'keys' => ['id' => 'primary']
     ]);
 ```
 

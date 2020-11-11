@@ -83,7 +83,7 @@ class Item
 
         foreach ($this->palette as $legend => $values) {
             $values['fields'] = implode(',', $values['fields']);
-            $compiled[]       = '{' . $legend . ($values['hidden'] ? ':hide' : '') . '},' . $values['fields'];
+            $compiled[]       = (!empty($legend) ? '{' . $legend . ($values['hidden'] ? ':hide' : '') . '},' : '') . $values['fields'];
         }
 
         $GLOBALS['TL_DCA'][$this->namespace]['palettes'][$this->element] = implode(';', $compiled);
