@@ -1,4 +1,10 @@
-# TL_DCA
+# Contao Globals Wrapper
+Eine Contao Extension die das arbeiten mit DCAs extrem erleichtert.
+
+Entwickelt mit PHP7.3 und Contao 4.9.
+
+
+## TL_DCA
 ```php
 use Lupcom\Globals\Dca;
 
