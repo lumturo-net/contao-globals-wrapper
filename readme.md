@@ -205,24 +205,6 @@ Models::bind([
 `BindingExistsException`
 > Wird zurückgegeben wenn eines der übergebenen Bindings bereits existiert
 
-## Allgemeine Info zu Models
-
-Ein Model repräsentiert EINE (!) Zeile aus einer Datenbanktabelle.
-
-Daher sollte ein Model auch immer nach der Einzahl benannt sein. Beispiele:
-
-`Lupcom\InserateBundle\Models\Inserat::class`
-
-`Lupcom\SpeisenBundle\Models\Speise::class`
-
-Sämtliche Datenbank-Interaktionen (Business Logik) sollten im Model abgebildet sein.
-
-Gibt ein Model eine Instanz von `Model\Collection` zurück, so
-sollte die entsprechende Variable nach der Mehrzahl benannt sein 
-und über den Suffix `Collection` verfügen. Beispiel:
-
-`$inserateCollection = Inserat::findBy('published', 1);`
-
 # BE_MOD
 ```php
 use Lupcom\Globals\Backend;
