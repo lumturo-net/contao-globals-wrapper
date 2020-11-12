@@ -1,5 +1,5 @@
 {
-    "name": "lupcom/globals-wrapper",
+    "name": "lupcom/contao-globals-wrapper",
     "description": "Ein objektorientierter Wrapper für das GLOBALS Array in Contao",
     "keywords": [
         "contao",
