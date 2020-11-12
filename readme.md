@@ -4,6 +4,14 @@ Eine Contao Extension die das arbeiten mit DCAs extrem erleichtert.
 Entwickelt mit PHP7.3 und Contao 4.9.
 
 
+## Installation
+
+Installation via composer
+
+```bash
+$ composer require lupcom/contao-globals-wrapper
+```
+
 ## TL_DCA
 ```php
 use Lupcom\Globals\Dca;
