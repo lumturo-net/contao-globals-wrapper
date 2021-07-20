@@ -1,5 +1,5 @@
 {
-    "name": "lupcom/contao-globals-wrapper",
+    "name": "lumturo-net/contao-globals-wrapper",
     "description": "Ein objektorientierter Wrapper für das GLOBALS Array in Contao",
     "keywords": [
         "contao",
@@ -8,13 +8,11 @@
         "wrapper"
     ],
     "type": "contao-bundle",
-    "homepage": "https://www.lupcom.de",
     "license": "proprietary",
     "authors": [
         {
             "name": "Christian Wederka",
-            "email": "christian.wederka@lupcom.de",
-            "homepage": "http://www.lupcom.de",
+            "email": "cw@lumturo.net",
             "role": "Project leader"
         }
     ],
@@ -24,7 +22,7 @@
     "autoload": {
         "files": ["helpers.php"],
         "psr-4": {
-            "Lupcom\\Globals\\": "src/"
+            "LumturoNet\\Globals\\": "src/"
         }
     }
 }
