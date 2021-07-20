@@ -1,6 +1,6 @@
 <?php
 
-use Lupcom\Globals\Lang;
+use LumturoNet\Globals\Lang;
 
 /**
  * @param string $key
