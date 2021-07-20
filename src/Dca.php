@@ -72,18 +72,19 @@ class Dca
      * @throws Exceptions\DcaFieldExistsException
      * @throws Exceptions\DcaFieldNotSetException
      */
-    public function fields($field, $extend = false): FieldItem
+    public function fields($field, bool $extend = false): FieldItem
     {
         return new FieldItem(static::$namespace, $field, $extend);
     }
 
     /**
      * @param $element
+     * @param bool $extend
      * @return PalettesItem
      */
-    public function palettes($element): PalettesItem
+    public function palettes($element, bool $extend = false): PalettesItem
     {
-        return new PalettesItem(static::$namespace, $element);
+        return new PalettesItem(static::$namespace, $element, $extend);
     }
 
     /**

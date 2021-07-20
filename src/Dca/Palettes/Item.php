@@ -21,21 +21,28 @@ class Item
     /**
      * @var array
      */
-    private $palette = [];
+    private array $palette = [];
     /**
      * @var null
      */
     private $currentGroup = null;
 
     /**
+     * @var bool
+     */
+    private bool $extend = false;
+
+    /**
      * Palettes constructor.
      * @param $namespace
      * @param $element
+     * @param $extend
      */
-    public function __construct($namespace, $element)
+    public function __construct($namespace, $element, $extend)
     {
         $this->namespace = $namespace;
         $this->element   = $element;
+        $this->extend    = $extend;
     }
 
     /**
@@ -86,6 +93,8 @@ class Item
             $compiled[]       = (!empty($legend) ? '{' . $legend . ($values['hidden'] ? ':hide' : '') . '},' : '') . $values['fields'];
         }
 
-        $GLOBALS['TL_DCA'][$this->namespace]['palettes'][$this->element] = implode(';', $compiled);
+        $palette = implode(';', $compiled);
+
+        $GLOBALS['TL_DCA'][$this->namespace]['palettes'][$this->element] = $this->extend ? $GLOBALS['TL_DCA'][$this->namespace]['palettes'][$this->element] . ';' . $palette : $palette;
     }
 }
