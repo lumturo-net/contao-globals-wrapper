@@ -1,12 +1,12 @@
 <?php
 
-namespace Lupcom\Globals;
+namespace LumturoNet\Globals;
 
-use Lupcom\Globals\Exceptions\BindingExistsException;
+use LumturoNet\Globals\Exceptions\BindingExistsException;
 
 /**
  * Class Models
- * @package Lupcom\Globals
+ * @package LumturoNet\Globals
  */
 class Models
 {

@@ -1,12 +1,12 @@
 <?php
 
-namespace Lupcom\Globals\Dca\Lists;
+namespace LumturoNet\Globals\Dca\Lists;
 
 /**
  * Class Label
  * @copyright LUPCOM media GmbH
- * @author Christian Wederka <christian.wederka@lupcom.de>
- * @package Lupcom\Globals\Dca\Lists
+ * @author Christian Wederka <cw@lumturo.net>
+ * @package LumturoNet\Globals\Dca\Lists
  */
 class Label
 {

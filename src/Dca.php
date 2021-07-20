@@ -1,18 +1,18 @@
 <?php
 
-namespace Lupcom\Globals;
+namespace LumturoNet\Globals;
 
-use Lupcom\Globals\Dca\Config\Item as ConfigItem;
-use Lupcom\Globals\Dca\Fields\Item as FieldItem;
-use Lupcom\Globals\Dca\Lists\Item as ListItem;
-use Lupcom\Globals\Dca\Palettes\Item as PalettesItem;
-use Lupcom\Globals\Dca\Palettes\Subpalette;
+use LumturoNet\Globals\Dca\Config\Item as ConfigItem;
+use LumturoNet\Globals\Dca\Fields\Item as FieldItem;
+use LumturoNet\Globals\Dca\Lists\Item as ListItem;
+use LumturoNet\Globals\Dca\Palettes\Item as PalettesItem;
+use LumturoNet\Globals\Dca\Palettes\Subpalette;
 
 /**
  * Class Dca
  * @copyright LUPCOM media GmbH
- * @author Christian Wederka <christian.wederka@lupcom.de>
- * @package Lupcom\Globals
+ * @author Christian Wederka <cw@lumturo.net>
+ * @package LumturoNet\Globals
  */
 class Dca
 {

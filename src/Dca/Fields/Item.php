@@ -1,17 +1,17 @@
 <?php
 
-namespace Lupcom\Globals\Dca\Fields;
+namespace LumturoNet\Globals\Dca\Fields;
 
 use InvalidArgumentException;
-use Lupcom\Globals\Exceptions\DcaFieldExistsException;
-use Lupcom\Globals\Exceptions\DcaFieldNotSetException;
-use Lupcom\Globals\Exceptions\DcaFieldSqlException;
+use LumturoNet\Globals\Exceptions\DcaFieldExistsException;
+use LumturoNet\Globals\Exceptions\DcaFieldNotSetException;
+use LumturoNet\Globals\Exceptions\DcaFieldSqlException;
 
 /**
  * Class Fields
  * @copyright LUPCOM media GmbH
- * @author Christian Wederka <christian.wederka@lupcom.de>
- * @package Lupcom\Globals\Dca\Options
+ * @author Christian Wederka <cw@lumturo.net>
+ * @package LumturoNet\Globals\Dca\Options
  */
 class Item
 {

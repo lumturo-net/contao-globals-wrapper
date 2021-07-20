@@ -1,15 +1,15 @@
 <?php
 
-namespace Lupcom\Globals\Dca\Fields;
+namespace LumturoNet\Globals\Dca\Fields;
 
 use InvalidArgumentException;
-use Lupcom\Globals\Exceptions\InvalidCallException;
+use LumturoNet\Globals\Exceptions\InvalidCallException;
 
 /**
  * Class EvalOptions
  * @copyright LUPCOM media GmbH
- * @author Christian Wederka <christian.wederka@lupcom.de>
- * @package Lupcom\Globals\Dca\Options\Fields
+ * @author Christian Wederka <cw@lumturo.net>
+ * @package LumturoNet\Globals\Dca\Options\Fields
  */
 class EvalOptions
 {

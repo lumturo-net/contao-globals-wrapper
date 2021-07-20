@@ -1,14 +1,14 @@
 <?php
 
-namespace Lupcom\Globals\Dca\Config;
+namespace LumturoNet\Globals\Dca\Config;
 
-use Lupcom\Globals\Exceptions\DcaConfigNotSetException;
+use LumturoNet\Globals\Exceptions\DcaConfigNotSetException;
 
 /**
  * Class Item
  * @copyright LUPCOM media GmbH
- * @author Christian Wederka <christian.wederka@lupcom.de>
- * @package Lupcom\Globals\Dca\Config
+ * @author Christian Wederka <cw@lumturo.net>
+ * @package LumturoNet\Globals\Dca\Config
  */
 class Item
 {

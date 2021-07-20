@@ -1,6 +1,6 @@
 <?php
 
-namespace Lupcom\Globals\Exceptions;
+namespace LumturoNet\Globals\Exceptions;
 
 use Exception;
 

@@ -1,12 +1,12 @@
 <?php
 
-namespace Lupcom\Globals;
+namespace LumturoNet\Globals;
 
 /**
  * Class Backend
  * @copyright LUPCOM media GmbH
- * @author Christian Wederka <christian.wederka@lupcom.de>
- * @package Lupcom\Globals
+ * @author Christian Wederka <cw@lumturo.net>
+ * @package LumturoNet\Globals
  */
 class Backend
 {

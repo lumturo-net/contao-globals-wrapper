@@ -1,12 +1,12 @@
 <?php
 
-namespace Lupcom\Globals\Exceptions;
+namespace LumturoNet\Globals\Exceptions;
 
 /**
  * Class InvalidCallException
- * @copyright LUPCOM media GmbH
- * @author Christian Wederka <christian.wederka@lupcom.de>
- * @package Lupcom\Globals\Exceptions
+ * @copyright LumturoNet media GmbH
+ * @author Christian Wederka <cw@lumturo.net>
+ * @package LumturoNet\Globals\Exceptions
  */
 class InvalidCallException extends \Exception
 {

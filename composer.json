@@ -8,7 +8,7 @@
         "wrapper"
     ],
     "type": "contao-bundle",
-    "license": "proprietary",
+    "license": "MIT",
     "authors": [
         {
             "name": "Christian Wederka",
@@ -17,7 +17,8 @@
         }
     ],
     "require": {
-        "php": "^7.1"
+        "php": "^7.4",
+        "contao/core-bundle": "^4.9"
     },
     "autoload": {
         "files": ["helpers.php"],

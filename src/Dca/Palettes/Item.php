@@ -1,12 +1,12 @@
 <?php
 
-namespace Lupcom\Globals\Dca\Palettes;
+namespace LumturoNet\Globals\Dca\Palettes;
 
-use Lupcom\Globals\Lang;
+use LumturoNet\Globals\Lang;
 
 /**
  * Class Palettes
- * @package Lupcom\Globals\Dca\Options
+ * @package LumturoNet\Globals\Dca\Options
  */
 class Item
 {

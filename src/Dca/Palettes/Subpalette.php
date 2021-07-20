@@ -1,10 +1,10 @@
 <?php
 
-namespace Lupcom\Globals\Dca\Palettes;
+namespace LumturoNet\Globals\Dca\Palettes;
 
 /**
  * Class Subpalette
- * @package Lupcom\Globals\Dca\Palettes
+ * @package LumturoNet\Globals\Dca\Palettes
  */
 class Subpalette
 {
