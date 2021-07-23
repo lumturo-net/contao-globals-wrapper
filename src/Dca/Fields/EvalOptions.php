@@ -243,12 +243,12 @@ class EvalOptions
      */
     public function rte(string $value = 'tinyMCE'): EvalOptions
     {
-        if (!in_array($value, [
+        /*if (!in_array($value, [
             'ace',
             'tinyMCE'
         ])) {
             throw new InvalidArgumentException('The given value of the "rte" method must be: ace|tinyMCE');
-        }
+        }*/
 
         $this->eval['rte'] = $value;
 

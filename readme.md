@@ -14,7 +14,7 @@ composer require lupcom/contao-globals-wrapper
 
 ## TL_DCA
 ```php
-use Lupcom\Globals\Dca;
+use LumturoNet\Globals\Dca;
 
 $dca = Dca::new(string $namespace);
 ```
@@ -135,7 +135,7 @@ von Inhaltselementen zu ihren respektiven Klassen definiert
 werden.
 
 ```php
-use Lupcom\Globals\Cte;
+use LumturoNet\Globals\Cte;
 use Namespace\Elements\MyCustomElement1;
 use Namespace\Elements\MyCustomElement2;
 use Namespace\Elements\MyCustomElement3;
@@ -154,7 +154,7 @@ Werte ausgelesen werden.
 
 ## Übersetzung erstellen
 ```php
-use Lupcom\Globals\Lang;
+use LumturoNet\Globals\Lang;
 
 $lang = Lang::set($namespace);
 $lang->trans('MyCustomElement1', 'Ein cooles Inhaltselement')
@@ -164,7 +164,7 @@ $lang->trans('MyCustomElement1', 'Ein cooles Inhaltselement')
 ```
 ## Übersetzungen holen
 ```php
-use Lupcom\Globals\Lang;
+use LumturoNet\Globals\Lang;
 
 Lang::set($namespace);
 
@@ -173,7 +173,7 @@ $dca->field('text')
 ```
 ## Übersetungen aus anderem Namespace holen
 ```php
-use Lupcom\Globals\Lang;
+use LumturoNet\Globals\Lang;
 
 $dca->field('text')
     ->label(__('deleteConfirm', 'MSC'));
@@ -188,7 +188,7 @@ der Models anders benannt sein können als die Tabellen
 in der Datenbank.
 
 ```php
-use Lupcom\Globals\Models;
+use LumturoNet\Globals\Models;
 
 use Namespace\Models\MyModel;
 use Namespace\Models\MySecondModel;
@@ -207,7 +207,7 @@ Models::bind([
 
 # BE_MOD
 ```php
-use Lupcom\Globals\Backend;
+use LumturoNet\Globals\Backend;
 
 Backend::new(string $namespace, string $module, [int $position = 1])->tables([
     'tl_tabelle_1',
@@ -218,7 +218,7 @@ Backend::new(string $namespace, string $module, [int $position = 1])->tables([
 
 # TL_HOOKS
 ```php
-use Lupcom\Globals\Hooks;
+use LumturoNet\Globals\Hooks;
 use Namespace\Hooks\AddCommentHook;
 
 $hooks = Hooks::get()
@@ -228,7 +228,7 @@ $hooks->activateAccount(array $myCallback)
 
 # TL_CSS
 ```php 
-use Lupcom\Globals\Css;
+use LumturoNet\Globals\Css;
 
 Css::push([
     'path/to/file1.css',
