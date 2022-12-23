@@ -24,9 +24,9 @@ class Item
      */
     private string $fieldName;
     /**
-     * @var string
+     * @var array
      */
-    private string $field;
+    private array $field;
 
     /**
      * Item constructor.
