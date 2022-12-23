@@ -3,6 +3,7 @@
 namespace LumturoNet\Globals\Dca\Fields;
 
 use InvalidArgumentException;
+use LumturoNet\Globals\Exceptions\BadVersionException;
 use LumturoNet\Globals\Exceptions\InvalidCallException;
 
 /**
@@ -14,21 +15,21 @@ use LumturoNet\Globals\Exceptions\InvalidCallException;
 class EvalOptions
 {
     /**
-     * @var
+     * @var string
      */
-    private $namespace;
+    private string $namespace;
     /**
-     * @var
+     * @var string
      */
-    private $field;
+    private string $field;
     /**
-     * @var
+     * @var Item
      */
-    private $fieldObject;
+    private Item $fieldObject;
     /**
      * @var array
      */
-    private $eval;
+    private array $eval;
 
     /**
      * EvalOptions constructor.
@@ -205,7 +206,8 @@ class EvalOptions
             'select',
             'radio',
             'checkbox',
-            'checkboxWizard'
+            'checkboxWizard',
+            'fileTree'
         ])) {
             throw new InvalidCallException('The "multiple" method can only be used on text|select|radio|checkbox fields');
         }
