@@ -11,26 +11,36 @@ use LumturoNet\Globals\Lang;
 class Item
 {
     /**
-     * @var null
+     * @var string|null
      */
-    private $namespace = null;
+    private ?string $namespace = null;
     /**
-     * @var null
+     * @var string|null
      */
-    private $element = null;
+    private ?string $element = null;
     /**
      * @var array
      */
     private array $palette = [];
     /**
-     * @var null
+     * @var string|null
      */
-    private $currentGroup = null;
+    private ?string $currentGroup = null;
 
     /**
      * @var bool
      */
     private bool $extend = false;
+
+    /**
+     * @var string|null
+     */
+    private ?string $strBefore = null;
+
+    /**
+     * @var string|null
+     */
+    private ?string $strAfter = null;
 
     /**
      * Palettes constructor.
@@ -55,7 +65,7 @@ class Item
      * @param false $hidden
      * @return Item
      */
-    public function group($legend, $translation = null, $hidden = false): Item
+    public function group($legend, $translation = null, bool $hidden = false): Item
     {
         $this->currentGroup     = $legend;
         $this->palette[$legend] = [
@@ -64,7 +74,7 @@ class Item
         ];
 
         if(!is_null($translation)) {
-            Lang::new($this->namespace)->trans($legend, $translation);
+            Lang::set($this->namespace)->trans($legend, $translation);
         }
 
         return $this;
@@ -77,6 +87,28 @@ class Item
     public function fields(array $fields): Item
     {
         $this->palette[$this->currentGroup]['fields'] = $fields;
+
+        return $this;
+    }
+
+    /**
+     * @param $strField
+     * @return $this
+     */
+    public function before($strField): Item
+    {
+        $this->strBefore = $strField;
+
+        return $this;
+    }
+
+    /**
+     * @param $strField
+     * @return $this
+     */
+    public function after($strField): Item
+    {
+        $this->strAfter = $strField;
 
         return $this;
     }
@@ -95,6 +127,24 @@ class Item
 
         $palette = implode(';', $compiled);
 
-        $GLOBALS['TL_DCA'][$this->namespace]['palettes'][$this->element] = $this->extend ? $GLOBALS['TL_DCA'][$this->namespace]['palettes'][$this->element] . ';' . $palette : $palette;
+        if($this->extend) {
+            if($this->strBefore) {
+                $GLOBALS['TL_DCA'][$this->namespace]['palettes'][$this->element] = str_replace($this->strBefore, $palette . ',' . $this->strBefore, $GLOBALS['TL_DCA'][$this->namespace]['palettes'][$this->element]);
+
+                return;
+            }
+
+            if($this->strAfter) {
+                $GLOBALS['TL_DCA'][$this->namespace]['palettes'][$this->element] = str_replace($this->strAfter, $this->strAfter . ',' . $palette, $GLOBALS['TL_DCA'][$this->namespace]['palettes'][$this->element]);
+
+                return;
+            }
+
+            $GLOBALS['TL_DCA'][$this->namespace]['palettes'][$this->element] . ';' . $palette;
+
+            return;
+        } else {
+            $GLOBALS['TL_DCA'][$this->namespace]['palettes'][$this->element] = $palette;
+        }
     }
 }
