@@ -13,13 +13,13 @@ use LumturoNet\Globals\Exceptions\DcaListNotSetException;
 class Item
 {
     /**
-     * @var
+     * @var string
      */
-    private $namespace;
+    private string $namespace;
     /**
-     * @var
+     * @var array
      */
-    public $list;
+    public array $list;
 
     /**
      * Item constructor.

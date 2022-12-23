@@ -17,13 +17,13 @@ use LumturoNet\Globals\Dca\Palettes\Subpalette;
 class Dca
 {
     /**
-     * @var
+     * @var Dca
      */
-    public static $instance;
+    public static Dca $instance;
     /**
-     * @var
+     * @var string
      */
-    public static $namespace;
+    public static string $namespace;
 
     /**
      * Dca constructor.
@@ -37,7 +37,7 @@ class Dca
      * @param $namespace
      * @return Dca
      */
-    public static function new($namespace)
+    public static function new($namespace): Dca
     {
         self::$instance  = new self;
         self::$namespace = $namespace;
@@ -50,7 +50,7 @@ class Dca
      * @return ConfigItem
      * @throws Exceptions\DcaConfigNotSetException
      */
-    public function config($extend = false): ConfigItem
+    public function config(bool $extend = false): ConfigItem
     {
         return new ConfigItem(static::$namespace, $extend);
     }
@@ -60,7 +60,7 @@ class Dca
      * @return ListItem
      * @throws Exceptions\DcaListNotSetException
      */
-    public function list($extend = false): ListItem
+    public function list(bool $extend = false): ListItem
     {
         return new ListItem(static::$namespace, $extend);
     }
@@ -91,7 +91,7 @@ class Dca
      * @param $element
      * @return Subpalette
      */
-    public function subpalette($element)
+    public function subpalette($element): Subpalette
     {
         return new Subpalette(static::$namespace, $element);
     }

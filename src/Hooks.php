@@ -13,12 +13,12 @@ class Hooks
     /**
      * @var
      */
-    private $hooks;
+    private array $hooks;
 
     /**
      * @var
      */
-    private static $instance;
+    private static Hooks $instance;
 
     /**
      * Hooks constructor.
@@ -31,7 +31,7 @@ class Hooks
     /**
      * @return $this
      */
-    public static function get()
+    public static function get(): Hooks
     {
         self::$instance = new self;
         self::$instance->hooks = &$GLOBALS['TL_HOOKS'];

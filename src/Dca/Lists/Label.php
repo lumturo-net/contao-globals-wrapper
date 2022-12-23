@@ -13,11 +13,11 @@ class Label
     /**
      * @var Item
      */
-    private $list;
+    private Item $list;
     /**
      * @var array
      */
-    private $label = [];
+    private array $label = [];
 
     /**
      * Labels constructor.

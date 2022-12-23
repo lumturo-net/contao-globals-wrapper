@@ -11,14 +11,14 @@ namespace LumturoNet\Globals;
 class Backend
 {
     /**
-     * @var
+     * @var array
      */
-    private $backend;
+    private array $backend;
 
     /**
-     * @var
+     * @var Backend
      */
-    private static $instance;
+    private static Backend $instance;
 
     /**
      * Backend constructor.
@@ -34,7 +34,7 @@ class Backend
      * @param int $position
      * @return Backend
      */
-    public static function new($namespace, $module, $position = 1)
+    public static function new($namespace, $module, int $position = 1): Backend
     {
         if(!isset($GLOBALS['BE_MOD'][$namespace][$module])) {
             array_insert($GLOBALS['BE_MOD'], $position, [$namespace => [$module => []]]);
@@ -47,11 +47,11 @@ class Backend
     }
 
     /**
-     * @param array $tables
-     * @param $extend
+     * @param  array  $tables
+     * @param  bool  $extend
      * @return $this
      */
-    public function tables(array $tables, $extend = false)
+    public function tables(array $tables, bool $extend = false): Backend
     {
         $extend ? $this->backend['tables'] = array_merge($this->backend['tables'], $tables) : $this->backend['tables'] = $tables;
 

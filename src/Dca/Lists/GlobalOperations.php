@@ -15,15 +15,15 @@ class GlobalOperations
     /**
      * @var Item
      */
-    private $list;
+    private Item $list;
     /**
-     * @var
+     * @var string
      */
-    private $key;
+    private string $key;
     /**
-     * @var
+     * @var array
      */
-    private $globalOperations = [];
+    private array $globalOperations = [];
 
     /**
      * GlobalOperations constructor.

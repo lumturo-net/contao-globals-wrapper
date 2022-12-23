@@ -18,15 +18,15 @@ class Item
     /**
      * @var string
      */
-    private $namespace;
+    private string $namespace;
     /**
      * @var string
      */
-    private $fieldName;
+    private string $fieldName;
     /**
-     * @var
+     * @var string
      */
-    private $field;
+    private string $field;
 
     /**
      * Item constructor.
@@ -58,10 +58,10 @@ class Item
     }
 
     /**
-     * @param string $label
+     * @param  string  $label
      * @return $this
      */
-    public function label($label): Item
+    public function label(string $label): Item
     {
         $label = $GLOBALS['TL_LANG'][$this->namespace][$this->fieldName] ?? $label;
 

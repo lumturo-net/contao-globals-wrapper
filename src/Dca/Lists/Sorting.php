@@ -13,13 +13,13 @@ use InvalidArgumentException;
 class Sorting
 {
     /**
-     * @var
+     * @var Item
      */
-    private $list;
+    private Item $list;
     /**
      * @var array
      */
-    private $sorting = [];
+    private array $sorting = [];
 
     /**
      * Sorting constructor.

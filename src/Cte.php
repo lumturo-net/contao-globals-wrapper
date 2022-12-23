@@ -11,14 +11,14 @@ namespace LumturoNet\Globals;
 class Cte
 {
     /**
-     * @var
+     * @var array
      */
-    private $cte;
+    private array $cte;
 
     /**
-     * @var
+     * @var Cte
      */
-    private static $instance;
+    private static Cte $instance;
 
     /**
      * Cte constructor.
@@ -48,7 +48,7 @@ class Cte
      * @param array $elements
      * @return $this
      */
-    public function push(array $elements)
+    public function push(array $elements): Cte
     {
         foreach ($elements as $element => $class) {
             $this->cte[$element] = $class;

@@ -8,9 +8,18 @@ namespace LumturoNet\Globals\Dca\Palettes;
  */
 class Subpalette
 {
-    private $namespace;
-    private $element;
-    private $fields = [];
+    /**
+     * @var string
+     */
+    private string $namespace;
+    /**
+     * @var string
+     */
+    private string $element;
+    /**
+     * @var array
+     */
+    private array $fields = [];
 
     /**
      * Subpalette constructor.
@@ -31,7 +40,7 @@ class Subpalette
      * @param array $fields
      * @return $this
      */
-    public function fields(array $fields)
+    public function fields(array $fields): Subpalette
     {
         $this->fields[$this->element] = $fields;
 
@@ -41,7 +50,7 @@ class Subpalette
     /**
      * @return $this
      */
-    public function compile()
+    public function compile(): Subpalette
     {
         $GLOBALS['TL_DCA'][$this->namespace]['subpalettes'][$this->element] = implode(',', $this->fields[$this->element]);
 

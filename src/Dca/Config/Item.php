@@ -13,13 +13,13 @@ use LumturoNet\Globals\Exceptions\DcaConfigNotSetException;
 class Item
 {
     /**
-     * @var
+     * @var string
      */
-    private $namespace;
+    private string $namespace;
     /**
-     * @var
+     * @var array
      */
-    private $config;
+    private array $config;
 
     /**
      * Item constructor.
@@ -27,7 +27,7 @@ class Item
      * @param false $extend
      * @throws DcaConfigNotSetException
      */
-    public function __construct($namespace, $extend = false)
+    public function __construct($namespace, bool $extend = false)
     {
         if (!$extend) {
             $GLOBALS['TL_DCA'][$namespace]['config'] = [];

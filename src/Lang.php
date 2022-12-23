@@ -11,20 +11,20 @@ namespace LumturoNet\Globals;
 class Lang
 {
     /**
-     * @var
+     * @var array|null
      */
-    private $lang = null;
+    private ?array $lang = null;
     /**
-     * @var
+     * @var Lang
      */
-    private static $instance;
+    private static Lang $instance;
 
     /**
      * @param string $namespace
      * @deprecated Lang::new($namespace) is deprecated and will be removed in the next version. Use Lang::set($namespace) instead
      * @return Lang
      */
-    public static function new(string $namespace)
+    public static function new(string $namespace): Lang
     {
         return self::set($namespace);
     }
@@ -34,7 +34,7 @@ class Lang
      * @param $translation
      * @return $this
      */
-    public function trans(string $key, $translation)
+    public function trans(string $key, $translation): Lang
     {
         $this->lang[$key] = $translation;
 
@@ -45,7 +45,7 @@ class Lang
      * @param string $namespace
      * @return Lang
      */
-    public static function set(string $namespace)
+    public static function set(string $namespace): Lang
     {
         self::$instance       = new self;
         self::$instance->lang = &$GLOBALS['TL_LANG'][$namespace];

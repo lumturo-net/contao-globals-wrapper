@@ -15,15 +15,15 @@ class Operations
     /**
      * @var Item
      */
-    private $list;
+    private Item $list;
     /**
-     * @var
+     * @var string
      */
-    private $key;
+    private string $key;
     /**
      * @var array
      */
-    private $operations = [];
+    private array $operations = [];
 
     /**
      * Operations constructor.
