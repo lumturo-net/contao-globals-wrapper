@@ -140,7 +140,7 @@ class Item
                 return;
             }
 
-            $GLOBALS['TL_DCA'][$this->namespace]['palettes'][$this->element] . ';' . $palette;
+            $GLOBALS['TL_DCA'][$this->namespace]['palettes'][$this->element] .= ';' . $palette;
 
             return;
         } else {
