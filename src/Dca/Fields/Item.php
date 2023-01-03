@@ -58,10 +58,10 @@ class Item
     }
 
     /**
-     * @param  string  $label
+     * @param $label
      * @return $this
      */
-    public function label(string $label): Item
+    public function label($label): Item
     {
         $label = $GLOBALS['TL_LANG'][$this->namespace][$this->fieldName] ?? $label;
 
